@@ -96,18 +96,38 @@ void showBoard(casas *arrayCasas)
         for(int j = 0; j<8; j++){
             if (arrayCasas[(i*8)+j].estado == 0){
                 printf("\033[0;33m");
+                if ((i+j)%2 == 0){
+                    printf("\033[40m");
+                } else {
+                    printf("\033[47m");
+                }
                 printf(" ? ");
                 printf("\033[0;37m");
             } else if(arrayCasas[(i*8)+j].estado == 1){
                 printf("\033[0;34m");
+                if ((i+j)%2 == 0){
+                    printf("\033[40m");
+                } else {
+                    printf("\033[47m");
+                }
                 printf("%2.d ", arrayCasas[(i*8)+j].indice);
                 printf("\033[0;37m");
             } else if(arrayCasas[(i*8)+j].estado == 2){
                 printf("\033[0;32m");
+                if ((i+j)%2 == 0){
+                    printf("\033[40m");
+                } else {
+                    printf("\033[47m");
+                }
                 printf(" V ");
                 printf("\033[0;37m");
             } else{
                 printf("\033[0;31m");
+                if ((i+j)%2 == 0){
+                    printf("\033[40m");
+                } else {
+                    printf("\033[47m");
+                }
                 printf(" X ");
                 printf("\033[0;37m");
             }
