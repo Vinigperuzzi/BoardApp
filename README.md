@@ -10,7 +10,7 @@ The rigth guesses will be marked as Verified (V), the worng guesses will be mark
 The next atualization intends to implement some colors to become more intuitive and funnier...
 
 
-==============================
+========================================================================================
 
 
 Stay tuned in this repo, cause problably this project will turn into a new project (maybe on this same repo), in javascript, using all the power of css to make a style even more intuitive and lots of more good looking. 
