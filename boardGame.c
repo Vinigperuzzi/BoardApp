@@ -92,15 +92,24 @@ void showBoard(casas *arrayCasas)
     system("clear || cls");
 
     for(int i = 7; i>=0; i--){      //Para inverter a apresentação no console
+    printf("\t\t\t");
         for(int j = 0; j<8; j++){
             if (arrayCasas[(i*8)+j].estado == 0){
+                printf("\033[0;33m");
                 printf(" ? ");
+                printf("\033[0;37m");
             } else if(arrayCasas[(i*8)+j].estado == 1){
+                printf("\033[0;34m");
                 printf("%2.d ", arrayCasas[(i*8)+j].indice);
+                printf("\033[0;37m");
             } else if(arrayCasas[(i*8)+j].estado == 2){
+                printf("\033[0;32m");
                 printf(" V ");
+                printf("\033[0;37m");
             } else{
+                printf("\033[0;31m");
                 printf(" X ");
+                printf("\033[0;37m");
             }
         }
         printf("\n");
@@ -119,18 +128,22 @@ Resultado game(casas *arrayCasas, int size, int modo)
             if(arrayCasas[j].indice == i){
                 arrayCasas[j].estado = 1;
                 showBoard(arrayCasas);
-                printf("Informe a casa do número apresentado, no formato (a4): \n");
+                printf("Informe a casa do número apresentado, no formato a4 (\"z0\" volta para o menu): \n");
                 if (modo == 21){
                     printf("\n\n\t\t\t%c%d:  \n\n", arrayCasas[j].col, arrayCasas[j].fil);
                 }
                 valorChar = getchar();
                 scanf("%d", &valorNum);
                 setbuf(stdin, NULL);
+                if (valorChar == 'z' && valorNum == 0){
+                    return resultado;
+                }
                 if (valorChar == arrayCasas[j].col && valorNum == arrayCasas[j].fil){
                     arrayCasas[j].estado = 2;
                     resultado.acertos++;
                 } else {
                     arrayCasas[j].estado = 3;
+                    printf("\a");
                     resultado.erros++;
                 }
             }
@@ -149,7 +162,7 @@ void caseOne(casas *arrayCasas, int size, int modo)
     resultado = game(arrayCasas, size, modo);
     showBoard(arrayCasas);
     final = clock();
-    printf("\n\n\t\tSeu tempo de jogo foi: %.2f segundos.\n\t\tE você teve %d acertos e %d erros.\n\n\n", ((float)(final - start)/1000), resultado.acertos, resultado.erros);
+    printf("\n\n\t\tSeu tempo de jogo foi: %.2f segundos.\n\t\tE você teve %d acertos e %d erros.\n\n\n", ((float)(final - start)/100), resultado.acertos, resultado.erros);
     printf("\n\n\t\t\tPressione enter para voltar ao menu\n\n\n");
     setbuf(stdin, NULL);
     getchar();
