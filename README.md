@@ -7,7 +7,6 @@ It is a very lightweight application, once its purpose is simple as well.
 The execution of the game in pretty intuitive, and in the gameplay, all you have to do is insert the square's row and column in the algebric format (a1).
 The rigth guesses will be marked as Verified (V), the worng guesses will be marked as errors (X), the square to be named will display the number of the actual square to be guessed, and all the others will be an question mark (?).
 
-The next atualization intends to implement some colors to become more intuitive and funnier...
 
 
 ========================================================================================
